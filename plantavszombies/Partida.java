@@ -5,6 +5,8 @@
  */
 package plantavszombies;
 
+import plantasVsZombies.plantavszombies.Tablero;
+
 /**
  *
  * @author Usuario

@@ -1,5 +1,5 @@
 
-package plantavszombies;
+package plantasVsZombies.plantavszombies;
 
 
 public abstract class Personaje {
