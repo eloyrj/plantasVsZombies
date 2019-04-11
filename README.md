@@ -1,3 +1,3 @@
 # plantasVsZombies
 
-## creado por Maria Chantal y Eloy Rodríguez.
+## Creado por María Chantal y Eloy Rodríguez.
