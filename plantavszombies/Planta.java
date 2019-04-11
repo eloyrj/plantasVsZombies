@@ -9,8 +9,10 @@ package plantavszombies;
  *
  * @author Usuario
  */
-public class Planta extends Personaje {
-    private int coste; 
+public abstract class Planta extends Personaje {
+    
+    private int coste;
+    private int frecuencia;
     
     public Planta() {
         super();
@@ -22,6 +24,14 @@ public class Planta extends Personaje {
 
     public void setCoste(int coste) {
         this.coste = coste;
+    }
+
+    public int getFrecuencia() {
+        return frecuencia;
+    }
+
+    public void setFrecuencia(int frecuencia) {
+        this.frecuencia = frecuencia;
     }
     
 }

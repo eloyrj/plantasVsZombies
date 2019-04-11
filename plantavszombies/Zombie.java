@@ -9,14 +9,26 @@ package plantavszombies;
  *
  * @author Usuario
  */
-public class Zombie extends Personaje {
+public abstract class Zombie extends Personaje {
 
+    
+    private int velocidad;
+    
     public Zombie() {
         super();
-        super.setVida(5);
-        super.setFrecuencia(0); //se inicializa a 0 y se mueve 1 casilla cada 2 ciclos
-        super.setDaño(1); //hace daño a las casillas adyacentes
     } 
+    
+    
+
+    public int getVelocidad() {
+        return velocidad;
+    }
+
+    public void setVelocidad(int velocidad) {
+        this.velocidad = velocidad;
+    }
+    
+    
         
 }
     

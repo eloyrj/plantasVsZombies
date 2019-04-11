@@ -22,5 +22,15 @@ public class Girasol extends Planta{
     public void ganaSoles(){ //los soles que genera el girasol
         
     }
+
+    @Override
+    public void Ataque(Personaje p) {
+        //esta funcion en esta planta no sirve
+    }
+
+    @Override
+    public String localizador() {
+        return "G(" + super.getVida()+")";
+    }
     
 }

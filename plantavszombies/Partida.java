@@ -13,7 +13,7 @@ public class Partida {
     private int soles;
     private int turno; //turno = ciclo
     private String dificultad; // baja, media, alta, imposible
-   
+    private Tablero tablero;
     
     
 }

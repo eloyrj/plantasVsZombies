@@ -2,18 +2,11 @@
 package plantavszombies;
 
 
-public class Personaje {
-    
-    //Constantes de comportamiento de los personajes
-    private final static int COMP_ZOMBIE = 0;
-    private final static int COMP_GIRASOL = 1;
-    private final static int COMP_GUISANTE = 2;
+public abstract class Personaje {
     
     //Atributos de los personajes
     private int vida;
     private int daño;
-    private int comportamiento; 
-    private int frecuencia; 
 
     public Personaje() {
     
@@ -35,23 +28,13 @@ public class Personaje {
         this.daño = daño;
     }
 
-    public int getComportamiento() {
-        return comportamiento;
-    }
-
-    public void setComportamiento(int comportamiento) {
-        this.comportamiento = comportamiento;
-    }
-
-    public int getFrecuencia() {
-        return frecuencia;
-    }
-
-    public void setFrecuencia(int frecuencia) {
-        this.frecuencia = frecuencia;
+    public boolean muerto(){
+       return vida == 0;
     }
     
+    public abstract void Ataque(Personaje p);
     
+    public abstract String localizador();
     
     
     

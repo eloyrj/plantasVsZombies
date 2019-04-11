@@ -4,19 +4,18 @@
  * and open the template in the editor.
  */
 package plantavszombies;
+
 /**
  *
- * @author Usuario
+ * @author corte
  */
-public class LanzaGuisantes extends Planta {
-    
-    public LanzaGuisantes() {
+public class ZombieComun extends Zombie {
+
+    public ZombieComun() {
         super();
-        super.setVida(3);
-        super.setCoste(50);
-        super.setFrecuencia(1); //lanza 1 guisante por ciclo
-        super.setDaño(1); 
-        
+        super.setVelocidad(2);
+        super.setDaño(1);
+        super.setVida(5);
     }
 
     @Override
@@ -26,10 +25,9 @@ public class LanzaGuisantes extends Planta {
 
     @Override
     public String localizador() {
-        return "L(" + super.getVida()+")";
+        return "Z(" + super.getVida()+")";
     }
-
     
     
-
+    
 }
