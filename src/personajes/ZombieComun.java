@@ -9,6 +9,20 @@ package personajes;
  *
  * @author corte
  */
-public class ZombieComun {
+public class ZombieComun extends Zombie {
+
+    public ZombieComun() {
+        velocidad = 2;
+        daño = 1;
+        vida = 5;
+    }
+    
+    public void atacar(Personaje p){
+        
+    }
+
+    
+    
+    
     
 }
