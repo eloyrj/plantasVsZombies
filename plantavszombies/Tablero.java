@@ -13,7 +13,7 @@ public class Tablero {
     
     private Personaje[][] tablero;
 
-    public Tablero(int x, int y) {//donde y es el alto e x el ancho
+    public Tablero(int x, int y) {//donde y son las columnas e x son las filas
         
         tablero = new Personaje[y][x];
     }
@@ -22,7 +22,7 @@ public class Tablero {
         return tablero;
     }
     public Personaje getTableroPos(int x,int y) {
-        return tablero[y][x];
+        return tablero[y-1][x-1];
     }
 
     public void setTablero(Personaje[][] tablero) {
@@ -61,13 +61,21 @@ public class Tablero {
         System.out.println(lineaFinal);
     }
     
+    public int lonX(){
+        return tablero[1].length;
+    }
+    
+    public int lonY(){
+        return tablero.length;
+    }
+    
     public static void main (String[] args){
-        Tablero a =new Tablero(12,4);
+        Tablero a =new Tablero(6,6);
         LanzaGuisantes l = new LanzaGuisantes();
         Girasol g = new Girasol();
         ZombieComun z = new ZombieComun();
         a.addT(4, 2, l);
-        a.addT(12, 4, g);
+        a.addT(3, 4, g);
         a.addT(6, 1, z);
         
         a.pintarTablero();

@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package plantavszombies;
+package plantasVsZombies.plantavszombies;
 
-import plantasVsZombies.plantavszombies.Tablero;
 
 /**
  *
@@ -16,6 +15,6 @@ public class Partida {
     private int turno; //turno = ciclo
     private String dificultad; // baja, media, alta, imposible
     private Tablero tablero;
-    
-    
+
+   
 }
