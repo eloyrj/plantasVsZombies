@@ -15,9 +15,9 @@ public class Comandos {
         return comando.toUpperCase();
     }
     
-    public void nuevaPartida(Juego j,String Dificultad,Tablero t,){
+    public void nuevaPartida (Juego j, String Dificultad, Tablero t,){
         
-        if (j.getPartida == null) {
+        if (j.getPartida() == null) {
         
             if (todoMayus(Dificultad).equals("BAJA")){
                 Partida p = new Partida(50,0,Dificultad,t,5,10);
