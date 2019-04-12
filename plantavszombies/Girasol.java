@@ -32,5 +32,10 @@ public class Girasol extends Planta{
     public String localizador() {
         return "G(" + super.getVida()+")";
     }
+
+    @Override
+    public void addPlanta(int x, int y, Tablero t, Partida p) {
+        if (getExcepcion().dentroTablero(x, y, t) && getExcepcion().casillaOcupada(x, y, t) && getExcepcion().costePosible(this, p))t.addT(x, y, this);
+    }
     
 }

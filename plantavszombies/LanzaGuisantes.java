@@ -10,13 +10,14 @@ package plantasVsZombies.plantavszombies;
  */
 public class LanzaGuisantes extends Planta {
     
+    
     public LanzaGuisantes() {
         super();
         super.setVida(3);
         super.setCoste(50);
         super.setFrecuencia(1); //lanza 1 guisante por ciclo
-        super.setDaño(1); 
-        
+        super.setDaño(1);
+        super.setExcepcion(new ExcepcionPlanta());
     }
 
     @Override
@@ -29,7 +30,11 @@ public class LanzaGuisantes extends Planta {
         return "L(" + super.getVida()+")";
     }
 
-    
+    @Override
+    public void addPlanta(int x, int y, Tablero t,Partida p) {
+        if (getExcepcion().dentroTablero(x, y, t) && getExcepcion().casillaOcupada(x, y, t) && getExcepcion().costePosible(this, p))t.addT(x, y, this);
+    }
+
     
 
 }

@@ -10,6 +10,11 @@ package plantasVsZombies.plantavszombies;
  * @author corte
  */
 public class ExcepcionPlanta {
+
+    public ExcepcionPlanta() {
+    }
+    
+    
     
     public boolean costePosible(Planta p,Partida g){
         if (p.getCoste()<= g.getSoles()) return true;

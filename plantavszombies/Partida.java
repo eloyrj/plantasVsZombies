@@ -5,7 +5,7 @@
  */
 package plantasVsZombies.plantavszombies;
 
-import plantasVsZombies.plantavszombies.Tablero;
+
 
 /**
  *
@@ -76,5 +76,6 @@ public class Partida {
     public void setTurnoInicial(int turnoInicial) {
         this.turnoInicial = turnoInicial;
     }
+    
 
 }
