@@ -4,47 +4,62 @@
  * and open the template in the editor.
  */
 package plantasVsZombies.plantavszombies;
-
+import java.util.Scanner;
 /**
  *
  * @author Usuario
  */
 public class Juego {
-    private String comandos;
-    private String partida;
+    private Comandos comandos;
+    private Partida partida;
     private ExcepcionJuego excepcionJuego;
 
-    public Juego(String comandos, String partida, ExcepcionJuego excepcionJuego) {
+    public Juego(Comandos comandos, ExcepcionJuego excepcionJuego) {
         this.comandos = comandos;
-        this.partida = partida;
         this.excepcionJuego = excepcionJuego;
     }
 
-    public String getComandos() {
+    public Comandos getComandos() {
         return comandos;
     }
 
-    public void setComandos(String comandos) {
+    public void setComandos(Comandos comandos) {
         this.comandos = comandos;
     }
 
-    public String getPartida() {
+    public Partida getPartida() {
         return partida;
     }
 
-    public void setPartida(String partida) {
+    public void setPartida(Partida partida) {
         this.partida = partida;
     }
 
     public ExcepcionJuego getExcepcionJuego() {
         return excepcionJuego;
+        
     }
 
     public void setExcepcionJuego(ExcepcionJuego excepcionJuego) {
         this.excepcionJuego = excepcionJuego;
     }
-
     
+
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        boolean fin = false;
+        Comandos comandos = new Comandos();
+        System.out.println("Bienbenido a Plantas Vs Zombies: ");
+        while(!fin){
+            System.out.println("(Teclea ayuda para lista de comandos. <enter> para terminar el turno.");
+            String entrada = scan.nextLine();
+            comandos.lecturaComando(entrada);
+            
+            
+            
+        }
+    
+    }
     
     
 }
