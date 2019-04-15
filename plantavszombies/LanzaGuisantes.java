@@ -31,8 +31,8 @@ public class LanzaGuisantes extends Planta {
     }
 
     @Override
-    public void addPlanta(int x, int y, Tablero t,Partida p) {
-        if (getExcepcion().dentroTablero(x, y, t) && getExcepcion().casillaOcupada(x, y, t) && getExcepcion().costePosible(this, p))t.addT(x, y, this);
+    public void addPlanta(int x, int y,Partida p) {
+        if (getExcepcion().dentroTablero(x, y, p.getTablero().lonX(), p.getTablero().lonY()) && getExcepcion().casillaOcupada(x, y, p.getTablero().getTableroPos(x, y)) && getExcepcion().costePosible(this.getCoste(), p.getSoles()))p.getTablero().addT(x, y, this);
     }
 
     

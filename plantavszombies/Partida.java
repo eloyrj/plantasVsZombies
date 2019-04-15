@@ -76,6 +76,12 @@ public class Partida {
     public void setTurnoInicial(int turnoInicial) {
         this.turnoInicial = turnoInicial;
     }
+
+    @Override
+    public String toString() {
+        return "Partida{" + "soles=" + soles + ", turno=" + turno + ", dificultad=" + dificultad + ", enemigos=" + enemigos + ", turnoInicial=" + turnoInicial + '}';
+    }
+    
     
 
 }

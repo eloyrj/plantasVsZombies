@@ -16,24 +16,25 @@ public class ExcepcionPlanta {
     
     
     
-    public boolean costePosible(Planta p,Partida g){
-        if (p.getCoste()<= g.getSoles()) return true;
+    public boolean costePosible(int coste,int solesTotales){
+        if (solesTotales >= coste) return true;
         else {
             System.out.println("No puedes añadir esto, no tienes suficientes Soles para ello.");
             return false;
         }
     }
     
-    public boolean casillaOcupada(int x, int y,Tablero t){
-        if (t.getTableroPos(x, y) == null) return true;
+    public boolean casillaOcupada(int x, int y,Personaje p){
+        if (p == null) return true;
         else {
             System.out.println("Esa casilla esta ocupada, pon otra acilla para continuar");
             return false;
         }
     }
     
-    public boolean dentroTablero(int x, int y, Tablero t){
-        if (t.lonX()>=x && t.lonY()>=y) return true;
+    public boolean dentroTablero(int x, int y, int lTX,int lTY){
+        
+        if (lTX >= x && lTY >= y) return true;
         else  {
             System.out.println("Esa posicion no exixte, intoduzca una posicion valida del tablero para continuar.");
             return false;

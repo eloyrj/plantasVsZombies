@@ -13,7 +13,7 @@ public abstract class Planta extends Personaje {
     
     private int coste;
     private int frecuencia;
-    private ExcepcionPlanta excepcion;
+    private ExcepcionPlanta excepcion = new ExcepcionPlanta();
     
     public Planta() {
         super();
@@ -45,5 +45,5 @@ public abstract class Planta extends Personaje {
     }
     
     
-    public abstract void addPlanta(int x,int y,Tablero t,Partida p);
+    public abstract void addPlanta(int x,int y,Partida p);
 }

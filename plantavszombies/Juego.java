@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package plantasVsZombies.plantavszombies;
-import java.util.Scanner;
+
 /**
  *
  * @author Usuario
@@ -45,21 +45,6 @@ public class Juego {
     }
     
 
-    public static void main(String[] args){
-        Scanner scan = new Scanner(System.in);
-        boolean fin = false;
-        Comandos comandos = new Comandos();
-        System.out.println("Bienbenido a Plantas Vs Zombies: ");
-        while(!fin){
-            System.out.println("(Teclea ayuda para lista de comandos. <enter> para terminar el turno.");
-            String entrada = scan.nextLine();
-            comandos.lecturaComando(entrada);
-            
-            
-            
-        }
-    
-    }
     
     
 }
