@@ -15,12 +15,13 @@ public class Girasol extends Planta{
         super();
         super.setVida(1);
         super.setCoste(20); 
-        super.setFrecuencia(0); //se inicializa a 0 y va variando cada dos ciclos
+        super.setFrecuencia(2); //se inicializa a 0 y va variando cada dos ciclos
         super.setDaño(0); //no daña a los soles
+        super.setContador(0);
     }
     
-    public void ganaSoles(){ //los soles que genera el girasol
-        
+    public int ganaSoles(int soles){ 
+        return soles += 20;
     }
 
     @Override
@@ -37,5 +38,14 @@ public class Girasol extends Planta{
     public void addPlanta(int x, int y,Partida p) {
         if (getExcepcion().dentroTablero(x, y, p.getTablero().lonX(), p.getTablero().lonY()) && getExcepcion().casillaOcupada(x, y, p.getTablero().getTableroPos(x, y)) && getExcepcion().costePosible(this.getCoste(), p.getSoles()))p.getTablero().addT(x, y, this);
     }
+
     
+    @Override
+    public void actua(Juego j) {
+            if (getContador() % getFrecuencia() ==0){
+                j.getPartida().setSoles(ganaSoles(j.getPartida().getSoles()));
+                System.out.println("soles");
+                System.out.println(getContador());
+        }
+    }
 }

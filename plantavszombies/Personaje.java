@@ -7,8 +7,10 @@ public abstract class Personaje {
     //Atributos de los personajes
     private int vida;
     private int daño;
+    private int contador;
 
     public Personaje() {
+        
     
     }
    
@@ -31,6 +33,16 @@ public abstract class Personaje {
     public boolean muerto(){
        return vida == 0;
     }
+
+    public int getContador() {
+        return contador;
+    }
+
+    public void setContador(int contador) {
+        this.contador = contador;
+    }
+    
+    public abstract void actua(Juego j);
     
     public abstract void Ataque(Personaje p);
     

@@ -16,6 +16,7 @@ public class ZombieComun extends Zombie {
         super.setVelocidad(2);
         super.setDaño(1);
         super.setVida(5);
+        super.setContador(0);
     }
 
     @Override
@@ -26,6 +27,11 @@ public class ZombieComun extends Zombie {
     @Override
     public String localizador() {
         return "Z(" + super.getVida()+")";
+    }
+
+    @Override
+    public void actua(Juego j) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

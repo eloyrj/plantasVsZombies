@@ -45,5 +45,7 @@ public abstract class Planta extends Personaje {
     }
     
     
+    
+    
     public abstract void addPlanta(int x,int y,Partida p);
 }

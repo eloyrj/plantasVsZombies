@@ -18,6 +18,7 @@ public class LanzaGuisantes extends Planta {
         super.setFrecuencia(1); //lanza 1 guisante por ciclo
         super.setDaño(1);
         super.setExcepcion(new ExcepcionPlanta());
+        super.setContador(0);
     }
 
     @Override
@@ -33,6 +34,11 @@ public class LanzaGuisantes extends Planta {
     @Override
     public void addPlanta(int x, int y,Partida p) {
         if (getExcepcion().dentroTablero(x, y, p.getTablero().lonX(), p.getTablero().lonY()) && getExcepcion().casillaOcupada(x, y, p.getTablero().getTableroPos(x, y)) && getExcepcion().costePosible(this.getCoste(), p.getSoles()))p.getTablero().addT(x, y, this);
+    }
+
+    @Override
+    public void actua(Juego j) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

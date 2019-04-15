@@ -44,9 +44,10 @@ public class Comandos {
             String dificultad = partesEntrada[3];
             c = new Comandos();            
             ExcepcionJuego ex = new ExcepcionJuego();
-            Tablero t = new Tablero(x,y);
-            j.setPartida(nuevaPartida(j,dificultad,t));
+            
+            j.setPartida(nuevaPartida(j,dificultad,x, y));
             j.getPartida().getTablero().pintarTablero();
+            if (j.getPartida()==null)System.out.println("null");
         }
         else if (entrada.equals("AYUDA")){
             ayuda();    
@@ -89,10 +90,10 @@ public class Comandos {
         
     }
     
-    public Partida nuevaPartida(Juego j, String Dificultad, Tablero t){
+    public Partida nuevaPartida(Juego j, String Dificultad , int x, int y){
         
         if (j.getPartida() == null) {
-        
+            Tablero t = new Tablero(x,y);
                         
             if (Dificultad.equals("BAJA")){
                 Partida p = new Partida(50,0,Dificultad,t,5,10);  
