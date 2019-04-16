@@ -34,6 +34,20 @@ public class ZombieComun extends Zombie {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    
-    
+
+    public void ataca (Juego j) {
+        
+
+        if (j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1 ) instanceof Planta ){
+            Ataque(j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1));
+        }
+        if (j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()+1 ) instanceof Planta ){
+            Ataque(j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()+1));
+        }
+        if (j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY() ) instanceof Planta ){
+            Ataque(j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY()));
+        }
+      
+    }
+
 }

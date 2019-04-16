@@ -71,7 +71,7 @@ public class Juego {
             }
             if (getPartida().getTurno() == getPartida().getTurnoInicial()){
                 turnoInicial = new int [getPartida().getTurnoInicial()];
-                turnosTotales = new int [salidaEnemigos.length + turnoInicial.length];
+                turnosTotales = new int [30 + turnoInicial.length];
                 
                 System.arraycopy(salidaEnemigos, 0, turnosTotales, 0, salidaEnemigos.length);
                 System.arraycopy(turnoInicial, 0, turnosTotales, salidaEnemigos.length, turnoInicial.length);

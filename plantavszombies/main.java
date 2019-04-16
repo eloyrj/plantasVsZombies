@@ -20,7 +20,7 @@ public class main {
         boolean fin = false;
         Comandos comandos = new Comandos();
         int turnoAnt = 0;
-        System.out.println("Bienbenido a Plantas Vs Zombies: ");
+        System.out.println("Bienvenido a Plantas Vs Zombies: ");
         while(!fin){
             if (j.getPartida() != null){
                 turnoAnt = j.getPartida().getTurno();
