@@ -38,6 +38,7 @@ public class Girasol extends Planta{
     public void addPlanta(int x, int y,Juego j) {
         if (getExcepcion().dentroTablero(x, y, j.getPartida().getTablero().lonX(), j.getPartida().getTablero().lonY()) && getExcepcion().casillaOcupada(x, y, j.getPartida().getTablero().getTableroPos(x, y)) && getExcepcion().costePosible(this.getCoste(), j.getPartida().getSoles()))j.getPartida().getTablero().addT(x, y, this);
         j.getPartida().setSoles(j.getPartida().getSoles()-getCoste());
+        j.getPartida().setTurno(j.getPartida().getTurno()+1);
     }
 
     

@@ -47,7 +47,9 @@ public class Comandos {
             
             j.setPartida(nuevaPartida(j,dificultad,x, y));
             j.getPartida().getTablero().pintarTablero();
-            if (j.getPartida()==null)System.out.println("null");
+            j.setTurnosTotales(j.getPartida().getTurnoInicial()+30);
+            System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
+            
         }
         else if (entrada.equals("AYUDA")){
             ayuda();    
@@ -61,7 +63,8 @@ public class Comandos {
             j.getPartida().getTablero().pintarTablero();
             g.setPosX(x);
             g.setPosY(y);
-            j.getPartida().setTurno(j.getPartida().getTurno()+1);
+            
+                    
             System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
             
         } 
@@ -73,7 +76,7 @@ public class Comandos {
             j.getPartida().getTablero().pintarTablero();
             l.setPosX(x);
             l.setPosY(y);
-            j.getPartida().setTurno(j.getPartida().getTurno()+1);
+            
             System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
         }
         else if ("S".equals(modo)){
@@ -82,7 +85,7 @@ public class Comandos {
         else if ("".equals(modo)){
             j.getPartida().setTurno(j.getPartida().getTurno()+1);
             System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
-            
+             j.getPartida().getTablero().pintarTablero();
         }
         else {
             System.out.println("no introduciste un comando valido, porfavor intentelo de nuevo.");
@@ -98,19 +101,19 @@ public class Comandos {
             Tablero t = new Tablero(x,y);
                         
             if (Dificultad.equals("BAJA")){
-                Partida p = new Partida(50,0,Dificultad,t,5,10);  
+                Partida p = new Partida(50,1,Dificultad,t,5,10);  
                 return p;
             }
             else if (Dificultad.equals("MEDIA")){
-                Partida p = new Partida(50,0,Dificultad,t,15,7);
+                Partida p = new Partida(50,1,Dificultad,t,15,7);
                 return p;
             }
             else if (todoMayus(Dificultad).equals("ALTA")){
-                Partida p = new Partida(50,0,Dificultad,t,25,5);  
+                Partida p = new Partida(50,1,Dificultad,t,25,5);  
                 return p;
             }
             else if (todoMayus(Dificultad).equals("IMPOSIBLE")){
-                Partida p = new Partida(50,0,Dificultad,t,50,5);
+                Partida p = new Partida(50,1,Dificultad,t,50,5);
                 return p;
             }
             return null;

@@ -35,15 +35,16 @@ public class LanzaGuisantes extends Planta {
     public void addPlanta(int x, int y,Juego j) {
         if (getExcepcion().dentroTablero(x, y, j.getPartida().getTablero().lonX(), j.getPartida().getTablero().lonY()) && getExcepcion().casillaOcupada(x, y, j.getPartida().getTablero().getTableroPos(x, y)) && getExcepcion().costePosible(this.getCoste(), j.getPartida().getSoles()))j.getPartida().getTablero().addT(x, y, this);
         j.getPartida().setSoles(j.getPartida().getSoles()-getCoste());
+        j.getPartida().setTurno(j.getPartida().getTurno()+1);
     }
 
     @Override
     public void actua(Juego j) {
         if (getContador() % getFrecuencia() ==0){
-            for (int i = super.getPosX(); i<j.getPartida().getTablero().getTablero()[super.getPosY()].length; i++){
+            for (int i = super.getPosX(); i<j.getPartida().getTablero().getTablero()[super.getPosY()-1].length; i++){
             
-                if ( j.getPartida().getTablero().getTableroPos(i,super.getPosY()) instanceof Zombie ){
-                    Ataque(j.getPartida().getTablero().getTableroPos(i,super.getPosY()) );
+                if ( j.getPartida().getTablero().getTableroPos(i+1,super.getPosY()) instanceof Zombie ){
+                    Ataque(j.getPartida().getTablero().getTableroPos(i+1,super.getPosY()) );
                 }
             }
         }

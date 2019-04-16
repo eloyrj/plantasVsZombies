@@ -24,7 +24,11 @@ public class Tablero {
     public Personaje getTableroPos(int x,int y) {
         return tablero[y-1][x-1];
     }
-
+    
+    public void setTableroPos(int x,int y, Personaje p ) {
+         tablero[y-1][x-1] = p;
+    }
+    
     public void setTablero(Personaje[][] tablero) {
         this.tablero = tablero;
     }

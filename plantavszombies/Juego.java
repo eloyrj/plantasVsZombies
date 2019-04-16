@@ -5,10 +5,9 @@
  */
 package plantasVsZombies.plantavszombies;
 
-import plantasVsZombies.plantavszombies.Comandos;
-import plantasVsZombies.plantavszombies.ExcepcionJuego;
+
 import java.util.Arrays;
-import plantasVsZombies.plantavszombies.Partida;
+
 
 
 /**
@@ -20,8 +19,7 @@ public class Juego {
     private Partida partida;
     private ExcepcionJuego excepcionJuego;
     private int[] salidaEnemigos;
-    private int[] turnoInicial;
-    private int[] turnosTotales;
+    private int turnosTotales;
     
     
 
@@ -52,29 +50,48 @@ public class Juego {
         
     }
 
+    public int[] getSalidaEnemigos() {
+        return salidaEnemigos;
+    }
+
+    public void setSalidaEnemigos(int[] salidaEnemigos) {
+        this.salidaEnemigos = salidaEnemigos;
+    }
+
+    public int getTurnosTotales() {
+        return turnosTotales;
+    }
+
+    public void setTurnosTotales(int turnosTotales) {
+        this.turnosTotales = turnosTotales;
+    }
+    
+    
+
     public void setExcepcionJuego(ExcepcionJuego excepcionJuego) {
         this.excepcionJuego = excepcionJuego;
     }
-    /*Vale no sé si esto estará bien pero mi idea era juntar los arrays de turnoInicial y de salidaEnemigos
-    para que me sacara el array de turnosTotales*/
-    
-    /*Actualización: me han saltado dos bombillitas con triangulo amarillo diciendo que metiera la vaina esa 
-    de arraycopy y lo he puesto no sé que es pero si java lo recomienda será bueno*/
     
     public void actualizar(){
-            if (getPartida().getTurno()==1) {
+            if (getPartida().getTurno()==2) {
                 salidaEnemigos = new int[getPartida().getLonEnemigos()];
                 for (int i = 0; i < getPartida().getLonEnemigos();i++){
                     salidaEnemigos[i]= (int) Math.floor(Math.random()*31);
                 }
-                Arrays.sort(salidaEnemigos);
-            }
-            if (getPartida().getTurno() == getPartida().getTurnoInicial()){
-                turnoInicial = new int [getPartida().getTurnoInicial()];
-                turnosTotales = new int [30 + turnoInicial.length];
                 
-                System.arraycopy(salidaEnemigos, 0, turnosTotales, 0, salidaEnemigos.length);
-                System.arraycopy(turnoInicial, 0, turnosTotales, salidaEnemigos.length, turnoInicial.length);
+            }
+            if (getPartida().getTurno()>3) {
+                if (getPartida().getTurnoInicial()>= getPartida().getTurno()){
+                    for (int i = 0; i < salidaEnemigos.length; i++){
+                        if(getPartida().getTurno() == salidaEnemigos[i] + getPartida().getTurnoInicial()){
+                            int y =(int) Math.floor(Math.random()*getPartida().getTablero().lonY()+1);
+                            getPartida().getTablero().addT(getPartida().getTablero().lonX(), y, getPartida().getEnemigosPos(i));
+                            getPartida().getEnemigosPos(i).setPosX(getPartida().getTablero().lonX());
+                            getPartida().getEnemigosPos(i).setPosY(y);
+                        }
+                    }
+                }
+    
             }
     }
 }

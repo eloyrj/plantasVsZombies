@@ -71,6 +71,10 @@ public class Partida {
     public Zombie[] getEnemigos() {
         return enemigos;
     }
+    
+    public Zombie getEnemigosPos(int pos) {
+        return enemigos[pos];
+    }
 
     public void setEnemigos(Zombie[] enemigos) {
         this.enemigos = enemigos;
