@@ -57,29 +57,29 @@ public class Comandos {
             Girasol g = new Girasol();
             int x = Integer.parseInt(partesEntrada[1]);
             int y = Integer.parseInt(partesEntrada[2]);
-            g.addPlanta(x, y, j.getPartida());
+            g.addPlanta(x, y, j);
             j.getPartida().getTablero().pintarTablero();
-            j.getPartida().setSoles(j.getPartida().getSoles()-g.getCoste());
+            
             j.getPartida().setTurno(j.getPartida().getTurno()+1);
-            System.out.println("tienes "+ j.getPartida().getSoles() + " y estas en el turno " + j.getPartida().getTurno());
+            System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
             
         } 
         else if ("L".equals(modo)){
             LanzaGuisantes l = new LanzaGuisantes();
             int x = Integer.parseInt(partesEntrada[1]);
             int y = Integer.parseInt(partesEntrada[2]);
-            l.addPlanta(x, y, j.getPartida());
+            l.addPlanta(x, y, j);
             j.getPartida().getTablero().pintarTablero();
-            j.getPartida().setSoles(j.getPartida().getSoles()-l.getCoste());
+            
             j.getPartida().setTurno(j.getPartida().getTurno()+1);
-            System.out.println("tienes "+ j.getPartida().getSoles() + " y estas en el turno " + j.getPartida().getTurno());
+            System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
         }
         else if ("S".equals(modo)){
             salir();
         }
         else if ("".equals(modo)){
             j.getPartida().setTurno(j.getPartida().getTurno()+1);
-            System.out.println("tienes "+ j.getPartida().getSoles() + " y estas en el turno " + j.getPartida().getTurno());
+            System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
             
         }
         else {
@@ -121,16 +121,16 @@ public class Comandos {
         
     }
     
-    public void colGirasol(int x,int y, Tablero t,Partida p){
+    public void colGirasol(int x,int y,Juego j){
         Girasol g = new Girasol();
-        g.addPlanta(x, y, p);
-        p.setSoles(p.getSoles()-g.getCoste());
+        g.addPlanta(x, y, j);
+        j.getPartida().setSoles(j.getPartida().getSoles()-g.getCoste());
     }
     
-    public void colLaGisantes(int x,int y, Tablero t,Partida p){
+    public void colLaGisantes(int x,int y,Juego j){
         LanzaGuisantes l = new LanzaGuisantes();
-        l.addPlanta(x, y, p);
-        p.setSoles(p.getSoles()-l.getCoste());
+        l.addPlanta(x, y, j);
+        j.getPartida().setSoles(j.getPartida().getSoles()-l.getCoste());
     }
     
     public void salir(){

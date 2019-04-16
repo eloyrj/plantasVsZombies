@@ -5,6 +5,8 @@
  */
 package plantasVsZombies.plantavszombies;
 
+import java.util.Arrays;
+
 
 
 /**
@@ -16,7 +18,7 @@ public class Partida {
     private int turno; //turno = ciclo
     private String dificultad; // baja, media, alta, imposible
     private Tablero tablero;
-    private int enemigos; // para fijar cuántos enemigos hay
+    private Zombie[] enemigos; // para fijar cuántos enemigos hay
     private int turnoInicial; /* turnos iniciales sin zombies dependiendo
                                * de la dificultad de la partida */
 
@@ -25,8 +27,13 @@ public class Partida {
         this.turno = turno;
         this.dificultad = dificultad;
         this.tablero = tablero;
-        this.enemigos = enemigos;
         this.turnoInicial = turnoInicial;
+        this.enemigos = new Zombie[enemigos];
+        for (int i = 0; i < enemigos; i++){
+            ZombieComun z = new ZombieComun();
+            this.enemigos[i] = z; 
+        }
+    
     }
 
     public int getSoles() {
@@ -61,12 +68,16 @@ public class Partida {
         this.tablero = tablero;
     }
 
-    public int getEnemigos() {
+    public Zombie[] getEnemigos() {
         return enemigos;
     }
 
-    public void setEnemigos(int enemigos) {
+    public void setEnemigos(Zombie[] enemigos) {
         this.enemigos = enemigos;
+    }
+    
+    public int getLonEnemigos(){
+        return enemigos.length;
     }
 
     public int getTurnoInicial() {
@@ -79,7 +90,7 @@ public class Partida {
 
     @Override
     public String toString() {
-        return "Partida{" + "soles=" + soles + ", turno=" + turno + ", dificultad=" + dificultad + ", enemigos=" + enemigos + ", turnoInicial=" + turnoInicial + '}';
+        return "Partida{" + "soles=" + soles + ", turno=" + turno + ", dificultad=" + dificultad + ", enemigos=" + Arrays.toString(enemigos) + ", turnoInicial=" + turnoInicial + '}';
     }
     
     

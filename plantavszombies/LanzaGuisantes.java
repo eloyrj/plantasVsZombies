@@ -32,13 +32,15 @@ public class LanzaGuisantes extends Planta {
     }
 
     @Override
-    public void addPlanta(int x, int y,Partida p) {
-        if (getExcepcion().dentroTablero(x, y, p.getTablero().lonX(), p.getTablero().lonY()) && getExcepcion().casillaOcupada(x, y, p.getTablero().getTableroPos(x, y)) && getExcepcion().costePosible(this.getCoste(), p.getSoles()))p.getTablero().addT(x, y, this);
+    public void addPlanta(int x, int y,Juego j) {
+        if (getExcepcion().dentroTablero(x, y, j.getPartida().getTablero().lonX(), j.getPartida().getTablero().lonY()) && getExcepcion().casillaOcupada(x, y, j.getPartida().getTablero().getTableroPos(x, y)) && getExcepcion().costePosible(this.getCoste(), j.getPartida().getSoles()))j.getPartida().getTablero().addT(x, y, this);
+        j.getPartida().setSoles(j.getPartida().getSoles()-getCoste());
     }
 
     @Override
     public void actua(Juego j) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //esto no esta implementado aun
+        
     }
 
     

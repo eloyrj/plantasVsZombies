@@ -5,6 +5,8 @@
  */
 package plantasVsZombies.plantavszombies;
 
+import java.util.Arrays;
+
 /**
  *
  * @author Usuario
@@ -13,6 +15,8 @@ public class Juego {
     private Comandos comandos;
     private Partida partida;
     private ExcepcionJuego excepcionJuego;
+    private int[] salidaEnemigos;
+    
 
     public Juego(Comandos comandos, ExcepcionJuego excepcionJuego) {
         this.comandos = comandos;
@@ -44,6 +48,15 @@ public class Juego {
         this.excepcionJuego = excepcionJuego;
     }
     
+    public void actualizar(){
+            if (getPartida().getTurno()==1) {
+                salidaEnemigos = new int[getPartida().getLonEnemigos()];
+                for (int i = 0; i < getPartida().getLonEnemigos();i++){
+                    salidaEnemigos[i]= (int) Math.floor(Math.random()*31);
+                }
+                Arrays.sort(salidaEnemigos);
+            }
+    }
 
     
     
