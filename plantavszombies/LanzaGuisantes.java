@@ -39,8 +39,14 @@ public class LanzaGuisantes extends Planta {
 
     @Override
     public void actua(Juego j) {
-        //esto no esta implementado aun
-        
+        if (getContador() % getFrecuencia() ==0){
+            for (int i = super.getPosY(); i<j.getPartida().getTablero().getTablero()[super.getPosY()].length;i++){
+            
+                if ( j.getPartida().getTablero().getTableroPos(i,super.getPosY()) instanceof Zombie ){
+                    Ataque(j.getPartida().getTablero().getTableroPos(i,super.getPosY()) );
+                }
+            }
+        }
     }
 
     

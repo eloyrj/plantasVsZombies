@@ -59,7 +59,8 @@ public class Comandos {
             int y = Integer.parseInt(partesEntrada[2]);
             g.addPlanta(x, y, j);
             j.getPartida().getTablero().pintarTablero();
-            
+            g.setPosX(x);
+            g.setPosY(y);
             j.getPartida().setTurno(j.getPartida().getTurno()+1);
             System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
             
@@ -70,7 +71,8 @@ public class Comandos {
             int y = Integer.parseInt(partesEntrada[2]);
             l.addPlanta(x, y, j);
             j.getPartida().getTablero().pintarTablero();
-            
+            l.setPosX(x);
+            l.setPosY(y);
             j.getPartida().setTurno(j.getPartida().getTurno()+1);
             System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
         }
