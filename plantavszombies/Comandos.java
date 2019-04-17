@@ -74,6 +74,7 @@ public class Comandos {
 
         } 
         else if ("L".equals(modo)){
+                
             if (j.getExcepcionJuego().comandoCompleto(partesEntrada)){
                 if (j.getPartida() != null){
                     LanzaGuisantes l = new LanzaGuisantes();
