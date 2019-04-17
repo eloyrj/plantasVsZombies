@@ -21,12 +21,12 @@ public class ExcepcionJuego {
         
     }
     
-    public boolean puedeCrear(String modo,int x,int y,String dificultad){
-        if (((modo == null && x == 0) && y == 0) && dificultad == null ) {
-            System.out.println("tienes que introducir todos los datos para crear una partida");
+    public boolean puedeCrear(String[] comandos){
+        if (comandos.length == 4) return true; 
+        else {
+            System.out.println("Tiene que introducir todos los datos del comando para continuar");
             return false;
-        } 
-        else return true;
+        }
 
     }
     
@@ -37,4 +37,14 @@ public class ExcepcionJuego {
             return false;
         }
     }
+    
+    public boolean comandoCompleto(String[] comandos){
+        if (comandos.length == 3) return true; 
+        else {
+            System.out.println("Tiene que introducir todos los datos del comando para continuar");
+            return false;
+        }
+
+    }
+    
 }

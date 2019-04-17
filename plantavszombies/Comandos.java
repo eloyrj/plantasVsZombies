@@ -36,66 +36,82 @@ public class Comandos {
         String modo = partesEntrada[0];
         
         Comandos c = j.getComandos();
+
         
-       
         if ("N".equals(modo)){
-            int x = Integer.parseInt(partesEntrada[1]);
-            int y = Integer.parseInt(partesEntrada[2]);
-            String dificultad = partesEntrada[3];
-            c = new Comandos();
-            ExcepcionJuego ex = new ExcepcionJuego();
-            if (ex.nivelValido(dificultad) && ex.partidaCreada(j) && ex.puedeCrear(modo, x, y, dificultad)){           
-                nuevaPartida(j,dificultad,x, y);
-                j.getPartida().getTablero().pintarTablero();
-                j.setTurnosTotales(j.getPartida().getTurnoInicial()+30);
-                System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
+            if (j.getExcepcionJuego().puedeCrear(partesEntrada)){
+                int x = Integer.parseInt(partesEntrada[1]);
+                int y = Integer.parseInt(partesEntrada[2]);
+                String dificultad = partesEntrada[3];
+                c = new Comandos();
+                ExcepcionJuego ex = new ExcepcionJuego();
+                if (ex.nivelValido(dificultad) && ex.partidaCreada(j) ){           
+                    nuevaPartida(j,dificultad,x, y);
+                    j.getPartida().getTablero().pintarTablero();
+                    j.setTurnosTotales(j.getPartida().getTurnoInicial()+30);
+                    System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
+                }
             }
         }
-        else if (entrada.equals("AYUDA")){
-            ayuda();
-        }
-        
-        else if (entrada.equals("NORMAS")){
-            normas();
-        }
-        
+
+
         else if ("G".equals(modo)){
-            Girasol g = new Girasol();
-            int x = Integer.parseInt(partesEntrada[1]);
-            int y = Integer.parseInt(partesEntrada[2]);
-            g.addPlanta(x, y, j);
-            j.getPartida().getTablero().pintarTablero();
-            g.setPosX(x);
-            g.setPosY(y);
-            
-                    
-            System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
-            
+            if (j.getExcepcionJuego().comandoCompleto(partesEntrada)){
+                if (j.getPartida() != null){
+                    Girasol g = new Girasol();
+                    int x = Integer.parseInt(partesEntrada[1]);
+                    int y = Integer.parseInt(partesEntrada[2]);
+                    g.addPlanta(x, y, j);
+                    j.getPartida().getTablero().pintarTablero();
+                    g.setPosX(x);
+                    g.setPosY(y);
+
+
+                    System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
+                }
+                else System.out.println("tiene que crear una partida primero");
+            }
+
         } 
         else if ("L".equals(modo)){
-            LanzaGuisantes l = new LanzaGuisantes();
-            int x = Integer.parseInt(partesEntrada[1]);
-            int y = Integer.parseInt(partesEntrada[2]);
-            l.addPlanta(x, y, j);
-            j.getPartida().getTablero().pintarTablero();
-            l.setPosX(x);
-            l.setPosY(y);
-            
-            System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
+            if (j.getExcepcionJuego().comandoCompleto(partesEntrada)){
+                if (j.getPartida() != null){
+                    LanzaGuisantes l = new LanzaGuisantes();
+                    int x = Integer.parseInt(partesEntrada[1]);
+                    int y = Integer.parseInt(partesEntrada[2]);
+                    l.addPlanta(x, y, j);
+                    j.getPartida().getTablero().pintarTablero();
+                    l.setPosX(x);
+                    l.setPosY(y);
+
+                    System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
+                }
+            }
+            else System.out.println("tiene que crear una partida primero");
         }
+        
         else if ("S".equals(modo)){
             salir();
         }
+
+        else if (entrada.equals("AYUDA")){
+            ayuda();
+        }
+
+        else if (entrada.equals("NORMAS")){
+            normas();
+        }
+
         else if ("".equals(modo)){
-            j.getPartida().setTurno(j.getPartida().getTurno()+1);
-             j.getPartida().getTablero().pintarTablero();
-             System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
+            if (j.getPartida() != null){
+                j.getPartida().setTurno(j.getPartida().getTurno()+1);
+                j.getPartida().getTablero().pintarTablero();
+                System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
+            }
         }
-        else {
-            System.out.println("no introduciste un comando valido, porfavor intentelo de nuevo.");
-        }
+        
                 
-            
+        
         
     }
     
@@ -140,14 +156,14 @@ public class Comandos {
         System.exit(0);
     }
     public void ayuda(){
-        System.out.println(" ");
-        System.out.println("Teclea normas para leer las instrucciones del juego.");
+        System.out.println(" ");        
         System.out.println("N <filas> <columnas> <Dificultad>: Nueva partida (Dificultad: BAJA, MEDIA, ALTA, IMPOSIBLE).");
         System.out.println("G <fila> <columna>: colocar girasol.");
         System.out.println("L <fila> <columna>: colocar LanzaGuisantes.");
         System.out.println("S: Salir de la aplicación");
         System.out.println("<Enter>: Pasar Turno");
         System.out.println("ayuda: este comando solicita a la aplicación que muestre la ayuda sobre cómo utilizar los comandos");
+        System.out.println("normas: este comando te permite leer las instrucciones del juego.");
         System.out.println(" ");
     }
     
