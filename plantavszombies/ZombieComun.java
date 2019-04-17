@@ -54,7 +54,7 @@ public class ZombieComun extends Zombie {
                 Ataque(j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()+1));
             }
         }
-        if (this.getPosX()!= 2 && this.getPosX()!= 1 ){
+        if ( this.getPosX()!= 1 ){
             if (j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY() ) instanceof Planta  &&  !j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1 ).muerto()){
                 Ataque(j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY()));
             }
