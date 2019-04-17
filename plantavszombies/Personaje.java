@@ -33,7 +33,7 @@ public abstract class Personaje {
     }
 
     public boolean muerto(){
-       return vida == 0;
+       return vida <= 0;
     }
 
     public int getContador() {
