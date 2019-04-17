@@ -84,8 +84,8 @@ public class Comandos {
         }
         else if ("".equals(modo)){
             j.getPartida().setTurno(j.getPartida().getTurno()+1);
-            System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
              j.getPartida().getTablero().pintarTablero();
+             System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
         }
         else {
             System.out.println("no introduciste un comando valido, porfavor intentelo de nuevo.");
