@@ -36,13 +36,21 @@ public class ZombieComun extends Zombie {
 
     @Override
     public void actua(Juego j) {
-        if (this.getPosX()==1)fin();
+        if (this.getPosX()==1) fin();
         
-        if (getContador() % getVelocidad() ==0){
-            j.getPartida().getTablero().setTableroPos(super.getPosX(), super.getPosY(), null) ;
-            j.getPartida().getTablero().setTableroPos(super.getPosX()-1, super.getPosY(), this);
-            this.setPosX(super.getPosX()-1);
+        
+        if (j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY()) == null){
+            if (getContador() % getVelocidad() ==0){
+                j.getPartida().getTablero().setTableroPos(super.getPosX(), super.getPosY(), null) ;
+                j.getPartida().getTablero().setTableroPos(super.getPosX()-1, super.getPosY(), this);
+                this.setPosX(super.getPosX()-1);
+            }
         }
+        
+        //comentamos estas lineas que lo que hacen es que los zombies ataquen tanto a la planta que tengan arriba como a la que tengan debajo
+        //creemos que el hecho de que el zombie ataque solo delante proporcione al jugaror menos confusiones y mejora su inversion en el juego
+        
+        /*
         if ( this.getPosY()!= 1){
             if (j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1 ) instanceof Planta  &&  !j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1 ).muerto()){
                 Ataque(j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1));
@@ -54,15 +62,14 @@ public class ZombieComun extends Zombie {
                 Ataque(j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()+1));
             }
         }
-        if ( this.getPosX()!= 1 ){
-            if (j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY() ) instanceof Planta  &&  !j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1 ).muerto()){
-                Ataque(j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY()));
+        */
+        
+        else{
+            if ( this.getPosX()!= 1 ){
+                if (j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY() ) instanceof Planta  &&  !j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY() ).muerto()){
+                    Ataque(j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY()));
+                }
             }
         }
-        
-      }
-    
-
-    
-
-}
+    }
+}  
