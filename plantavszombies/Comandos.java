@@ -52,7 +52,11 @@ public class Comandos {
             }
         }
         else if (entrada.equals("AYUDA")){
-            ayuda();    
+            ayuda();
+        }
+        
+        else if (entrada.equals("NORMAS")){
+            normas();
         }
         
         else if ("G".equals(modo)){
@@ -136,12 +140,27 @@ public class Comandos {
         System.exit(0);
     }
     public void ayuda(){
+        System.out.println(" ");
+        System.out.println("Teclea normas para leer las instrucciones del juego.");
         System.out.println("N <filas> <columnas> <Dificultad>: Nueva partida (Dificultad: BAJA, MEDIA, ALTA, IMPOSIBLE).");
         System.out.println("G <fila> <columna>: colocar girasol.");
         System.out.println("L <fila> <columna>: colocar LanzaGuisantes.");
         System.out.println("S: Salir de la aplicación");
         System.out.println("<Enter>: Pasar Turno");
         System.out.println("ayuda: este comando solicita a la aplicación que muestre la ayuda sobre cómo utilizar los comandos");
+        System.out.println(" ");
     }
     
+    public void normas() {
+        System.out.println(" ");
+        System.out.println("Normas para jugar a Plantas vs Zombies: ");
+        System.out.println(" ");
+        System.out.println("El objetivo del juego es eliminar a los Zombies que aparecen por la derecha mediante el uso de plantas como armas.");
+        System.out.println("Los soles se usan como unidad de dinero. Necesitas soles para comprar Girasoles y LanzaGuisantes.");
+        System.out.println("Los Girasoles cuestan 20 soles y, a su vez, producen 20 soles más cada 2 turnos de la partida.");
+        System.out.println("Por su parte, los LanzaGuisantes cuestan 50 soles y son los capaces de matar a los zombies.");
+        System.out.println("Para plantarlas, tienes que seleccionar la casilla en la que quieres plantarlo. ¿Cómo? Mediante coordenadas.");
+        System.out.println("Visualiza la casilla en la que quieres plantar y teclea el número de columna y luego de fila. Al pulsar enter aparecerá.");
+        System.out.println(" ");
+    }
 }
