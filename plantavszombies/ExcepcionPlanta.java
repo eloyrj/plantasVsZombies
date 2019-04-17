@@ -24,7 +24,7 @@ public class ExcepcionPlanta {
         }
     }
     
-    public boolean casillaOcupada(int x, int y,Personaje p){
+    public boolean casillaOcupada(Personaje p){
         if (p == null) return true;
         else {
             System.out.println("Esa casilla esta ocupada, pon otra casilla para continuar");

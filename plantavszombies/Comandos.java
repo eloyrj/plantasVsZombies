@@ -42,14 +42,14 @@ public class Comandos {
             int x = Integer.parseInt(partesEntrada[1]);
             int y = Integer.parseInt(partesEntrada[2]);
             String dificultad = partesEntrada[3];
-            c = new Comandos();            
+            c = new Comandos();
             ExcepcionJuego ex = new ExcepcionJuego();
-            
-            j.setPartida(nuevaPartida(j,dificultad,x, y));
-            j.getPartida().getTablero().pintarTablero();
-            j.setTurnosTotales(j.getPartida().getTurnoInicial()+30);
-            System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
-            
+            if (ex.nivelValido(dificultad) && ex.partidaCreada(j) && ex.puedeCrear(modo, x, y, dificultad)){           
+                nuevaPartida(j,dificultad,x, y);
+                j.getPartida().getTablero().pintarTablero();
+                j.setTurnosTotales(j.getPartida().getTurnoInicial()+30);
+                System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
+            }
         }
         else if (entrada.equals("AYUDA")){
             ayuda();    
@@ -95,35 +95,28 @@ public class Comandos {
         
     }
     
-    public Partida nuevaPartida(Juego j, String Dificultad , int x, int y){
+    public void nuevaPartida(Juego j, String Dificultad , int x, int y){
         
-        if (j.getPartida() == null) {
-            Tablero t = new Tablero(x,y);
-                        
-            if (Dificultad.equals("BAJA")){
-                Partida p = new Partida(50,1,Dificultad,t,5,10);  
-                return p;
-            }
-            else if (Dificultad.equals("MEDIA")){
-                Partida p = new Partida(50,1,Dificultad,t,15,7);
-                return p;
-            }
-            else if (todoMayus(Dificultad).equals("ALTA")){
-                Partida p = new Partida(50,1,Dificultad,t,25,5);  
-                return p;
-            }
-            else if (todoMayus(Dificultad).equals("IMPOSIBLE")){
-                Partida p = new Partida(50,1,Dificultad,t,50,5);
-                return p;
-            }
-            return null;
+        
+        Tablero t = new Tablero(x,y);
+
+        if (Dificultad.equals("BAJA")){
+            Partida p = new Partida(50,1,Dificultad,t,5,10);  
+            j.setPartida(p);
         }
-        else {
-            System.out.println("ya estas jugando una partida, por favor terminala para comenzar otra.");
-            return null;
+        else if (Dificultad.equals("MEDIA")){
+            Partida p = new Partida(50,1,Dificultad,t,15,7);
+            j.setPartida(p);
         }
-        
-        
+        else if (todoMayus(Dificultad).equals("ALTA")){
+            Partida p = new Partida(50,1,Dificultad,t,25,5);  
+            j.setPartida(p);
+        }
+        else if (todoMayus(Dificultad).equals("IMPOSIBLE")){
+            Partida p = new Partida(50,1,Dificultad,t,50,5);
+            j.setPartida(p);
+        }
+            
     }
     
     public void colGirasol(int x,int y,Juego j){

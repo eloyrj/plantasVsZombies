@@ -18,7 +18,7 @@ public class Juego {
     private Comandos comandos;
     private Partida partida;
     private ExcepcionJuego excepcionJuego;
-    private int[] salidaEnemigos;
+    private int totalEnemigos;
     private int turnosTotales;
     
     
@@ -50,13 +50,15 @@ public class Juego {
         
     }
 
-    public int[] getSalidaEnemigos() {
-        return salidaEnemigos;
+    public int getTotalEnemigos() {
+        return totalEnemigos;
     }
 
-    public void setSalidaEnemigos(int[] salidaEnemigos) {
-        this.salidaEnemigos = salidaEnemigos;
+    public void setTotalEnemigos(int totalEnemigos) {
+        this.totalEnemigos = totalEnemigos;
     }
+    
+    
 
     public int getTurnosTotales() {
         return turnosTotales;
@@ -73,25 +75,21 @@ public class Juego {
     }
     
     public void actualizar(){
-            if (getPartida().getTurno()==2) {
-                salidaEnemigos = new int[getPartida().getLonEnemigos()];
-                for (int i = 0; i < getPartida().getLonEnemigos();i++){
-                    salidaEnemigos[i]= (int) Math.floor(Math.random()*31);
+        
+        if (getPartida().getTurno()>getPartida().getTurnoInicial() && totalEnemigos < getPartida().getEnemigos() ){
+            int zombiesRonda = (int) (Math.random() * getPartida().getTablero().lonY()) + 1;
+            int zombiesGenerados=0;
+            for (int i = 0; i<zombiesRonda; i++){
+                int pos =(int) (Math.random() * getPartida().getTablero().lonY()) + 1;
+                ZombieComun z = new ZombieComun();
+                if (getPartida().getTablero().getTableroPos(getPartida().getTablero().lonX(),pos) == null){
+                    getPartida().getTablero().addT(getPartida().getTablero().lonX(), pos, z);
+                    z.setPosX(getPartida().getTablero().lonX());
+                    z.setPosY(pos);
+                    zombiesGenerados++;
                 }
-                
             }
-            if (getPartida().getTurno()>3) {
-                if (getPartida().getTurnoInicial()>= getPartida().getTurno()){
-                    for (int i = 0; i < salidaEnemigos.length; i++){
-                        if(getPartida().getTurno() == salidaEnemigos[i] + getPartida().getTurnoInicial()){
-                            int y =(int) Math.floor(Math.random()*getPartida().getTablero().lonY()+1);
-                            getPartida().getTablero().addT(getPartida().getTablero().lonX(), y, getPartida().getEnemigosPos(i));
-                            getPartida().getEnemigosPos(i).setPosX(getPartida().getTablero().lonX());
-                            getPartida().getEnemigosPos(i).setPosY(y);
-                        }
-                    }
-                }
-    
-            }
+            totalEnemigos += zombiesGenerados;
+        }
     }
 }

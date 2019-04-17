@@ -42,8 +42,11 @@ public class main {
             String entrada = scan.nextLine();
             comandos.lecturaComando(entrada,j);
             
-            if (j.getTurnosTotales() == j.getPartida().getTurno()) fin =true;
             
+            if (!ex.partidaCreada(j)) {
+                System.out.println("entro");
+                if (j.getTurnosTotales() == j.getPartida().getTurno()) fin =true;
+            }
         }
         System.out.println("me cago en maria 10 000 veces");
     
