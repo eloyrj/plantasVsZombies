@@ -77,7 +77,7 @@ public class Juego {
     public void actualizar(){
         
         if (getPartida().getTurno()>getPartida().getTurnoInicial() && totalEnemigos < getPartida().getEnemigos() ){
-            int zombiesRonda = (int) (Math.random() * getPartida().getTablero().lonY()) + 1;
+            int zombiesRonda = (int) (Math.random() * getPartida().getTablero().lonY());
             int zombiesGenerados=0;
             for (int i = 0; i<zombiesRonda; i++){
                 int pos =(int) (Math.random() * getPartida().getTablero().lonY()) + 1;

@@ -112,7 +112,7 @@ public class Comandos {
         }
         
                 
-        
+        System.out.println(j.getPartida().getTurno());
         
     }
     

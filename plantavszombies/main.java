@@ -37,7 +37,8 @@ public class main {
                             }
                         }
                     }
-                j.actualizar(); 
+                    j.actualizar(); 
+                    System.out.println("las cagao");
                 }
             }
             System.out.println("Teclea ayuda para lista de comandos. <enter> para terminar el turno.");
