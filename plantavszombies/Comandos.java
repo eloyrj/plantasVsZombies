@@ -109,10 +109,8 @@ public class Comandos {
                 j.getPartida().getTablero().pintarTablero();
                 System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
             }
-        }
+        }      
         
-                
-        System.out.println(j.getPartida().getTurno());
         
     }
     
