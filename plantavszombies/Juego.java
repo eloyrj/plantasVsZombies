@@ -6,6 +6,8 @@
 package plantasVsZombies.plantavszombies;
 
 
+import java.util.Arrays;
+
 
 
 /**
@@ -18,7 +20,7 @@ public class Juego {
     private ExcepcionJuego excepcionJuego;
     private int totalEnemigos;
     private int turnosTotales;
-    
+    private int turnoAnt;
     
 
    
@@ -72,22 +74,38 @@ public class Juego {
         this.excepcionJuego = excepcionJuego;
     }
     
-    public void actualizar(){
-        
-        if (getPartida().getTurno()>getPartida().getTurnoInicial() && totalEnemigos < getPartida().getEnemigos() ){
-            int zombiesRonda = (int) (Math.random() * getPartida().getTablero().lonY());
-            int zombiesGenerados=0;
-            for (int i = 0; i<zombiesRonda; i++){
-                int pos =(int) (Math.random() * getPartida().getTablero().lonY()) + 1;
-                ZombieComun z = new ZombieComun();
-                if (getPartida().getTablero().getTableroPos(getPartida().getTablero().lonX(),pos) == null){
-                    getPartida().getTablero().addT(getPartida().getTablero().lonX(), pos, z);
-                    z.setPosX(getPartida().getTablero().lonX());
-                    z.setPosY(pos);
-                    zombiesGenerados++;
+    public void actualizar(Juego j){
+        if (j.getPartida() != null){
+                if (turnoAnt != j.getPartida().getTurno()){
+                    turnoAnt = j.getPartida().getTurno();
+                    for (int i =0; i< j.getPartida().getTablero().lonY();i++){
+                        for (int p =0 ; p < j.getPartida().getTablero().lonX() ; p++){
+                            if (j.getPartida().getTablero().getTableroPos(p+1, i+1) != null && !j.getPartida().getTablero().getTableroPos(p+1, i+1).muerto()){
+                                j.getPartida().getTablero().getTableroPos(p+1, i+1).setContador(j.getPartida().getTablero().getTableroPos(p+1, i+1).getContador()+1);
+                                j.getPartida().getTablero().getTableroPos(p+1, i+1).actua(j);
+                            }
+                            else if (j.getPartida().getTablero().getTableroPos(p+1, i+1) != null && j.getPartida().getTablero().getTableroPos(p+1, i+1).muerto()){
+                                j.getPartida().getTablero().setTableroPos(p+1, i+1,null);
+                            }
+                        }
+                    }
+                    if (getPartida().getTurno()>getPartida().getTurnoInicial() && totalEnemigos < getPartida().getEnemigos() ){
+                        int zombiesRonda = (int) (Math.random() * getPartida().getTablero().lonY());
+                        int zombiesGenerados=0;
+                        for (int i = 0; i<zombiesRonda; i++){
+                            int pos =(int) (Math.random() * getPartida().getTablero().lonY()) + 1;
+                            ZombieComun z = new ZombieComun();
+                            if (getPartida().getTablero().getTableroPos(getPartida().getTablero().lonX(),pos) == null){
+                                getPartida().getTablero().addT(getPartida().getTablero().lonX(), pos, z);
+                                z.setPosX(getPartida().getTablero().lonX());
+                                z.setPosY(pos);
+                                zombiesGenerados++;
+                            }
+                        }
+                        totalEnemigos += zombiesGenerados;
+                    }                      
                 }
-            }
-            totalEnemigos += zombiesGenerados;
         }
+        
     }
 }
