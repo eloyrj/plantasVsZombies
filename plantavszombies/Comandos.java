@@ -7,7 +7,10 @@ package plantasVsZombies.plantavszombies;
 
 /**
  *
- * @author corte
+ * @author Eloy Rodríguez y María Chantal
+ */
+
+/** La clase Comandos controlará todos los comandos introducidos por teclado
  */
 public class Comandos {
     private boolean fin;
@@ -25,11 +28,18 @@ public class Comandos {
     }
     
     
-    
+    /** Método que pondrá todos los comandos introducidos por teclado en mayúscula
+     * @param comando el comando introducido por el usuario
+     * @return dicho comando en mayúscula
+     */
     public String todoMayus(String comando){
         return comando.toUpperCase();
     }
     
+    /** Método para leer los comandos introducidos por teclado por el usuario
+     * @param entrada comando introducido por el usuario
+     * @param j partida por iniciar
+     */
     public void lecturaComando(String entrada, Juego j){
         entrada = todoMayus(entrada);
         String[] partesEntrada =entrada.split(" ");
@@ -37,7 +47,8 @@ public class Comandos {
         
         Comandos c = j.getComandos();
 
-        
+        /** El comando "N" servirá para iniciar una nueva partida 
+         */
         if ("N".equals(modo)){
             if (j.getExcepcionJuego().puedeCrear(partesEntrada)){
                 int x = Integer.parseInt(partesEntrada[1]);
@@ -54,7 +65,8 @@ public class Comandos {
             }
         }
 
-
+        /** El comando "G" servirá para plantar un Girasol
+         */
         else if ("G".equals(modo)){
             if (j.getExcepcionJuego().comandoCompleto(partesEntrada)){
                 if (j.getPartida() != null){
@@ -73,6 +85,8 @@ public class Comandos {
             }
 
         } 
+        /** El comando "L" servirá para plantar un Lanzaguisantes
+         */
         else if ("L".equals(modo)){
                 
             if (j.getExcepcionJuego().comandoCompleto(partesEntrada)){
@@ -91,18 +105,26 @@ public class Comandos {
             else System.out.println("tiene que crear una partida primero");
         }
         
+        /** El comando "S" servirá para salir de la partida
+         */
         else if ("S".equals(modo)){
             salir();
         }
-
+        
+        /**El comando "AYUDA" mostrará una lista de los comandos a seguir para poder jugar la partida
+         */
         else if (entrada.equals("AYUDA")){
             ayuda();
         }
-
+        
+        /** El comando "NORMAS" mostrará una lista con las normas del juego
+         */
         else if (entrada.equals("NORMAS")){
             normas();
         }
-
+        
+        /**El comando servirá para pasar el turno cada vez que el usuario pulse "enter"
+         */
         else if ("".equals(modo)){
             if (j.getPartida() != null){
                 j.getPartida().setTurno(j.getPartida().getTurno()+1);
@@ -110,13 +132,15 @@ public class Comandos {
                 System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
             }
         }
-        
-        
     }
     
+    /** Método para crear una nueva partida
+     * @param j partida a crear
+     * @param Dificultad la dificultad deseada por el usuario
+     * @param x filas del tablero
+     * @param y columnas del tablero
+     */
     public void nuevaPartida(Juego j, String Dificultad , int x, int y){
-        
-        
         Tablero t = new Tablero(x,y);
 
         if (Dificultad.equals("BAJA")){
@@ -138,22 +162,37 @@ public class Comandos {
             
     }
     
+    /** Método para plantar un Girasol
+     * @param x filas del tablero
+     * @param y columnas del tablero
+     * @param j partida en curso
+     */
     public void colGirasol(int x,int y,Juego j){
         Girasol g = new Girasol();
         g.addPlanta(x, y, j);
         j.getPartida().setSoles(j.getPartida().getSoles()-g.getCoste());
     }
     
+    /** Método para plantar un LanzaGuisantes
+     * @param x filas del tablero
+     * @param y columnas del tablero
+     * @param j partida en curso
+     */    
     public void colLaGisantes(int x,int y,Juego j){
         LanzaGuisantes l = new LanzaGuisantes();
         l.addPlanta(x, y, j);
         j.getPartida().setSoles(j.getPartida().getSoles()-l.getCoste());
     }
     
+    /** Método para salir de la partida
+    */
     public void salir(){
         System.out.println("Hasta Luego. Esperamos que te haya gustado");
         System.exit(0);
     }
+    
+    /** Método para mostrar la lista de comandos a seguir para poder jugar la partida
+    */
     public void ayuda(){
         System.out.println(" ");        
         System.out.println("N <filas> <columnas> <Dificultad>: Nueva partida (Dificultad: BAJA, MEDIA, ALTA, IMPOSIBLE).");
@@ -166,6 +205,8 @@ public class Comandos {
         System.out.println(" ");
     }
     
+    /** Método para mostrar la lista de normas del juego
+    */
     public void normas() {
         System.out.println(" ");
         System.out.println("Normas para jugar a Plantas vs Zombies: ");

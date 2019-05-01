@@ -12,18 +12,27 @@ import java.util.Arrays;
 
 /**
  *
- * @author Usuario
+ * @author Eloy Rodríguez y María Chantal
  */
+
+/** La clase Juego engloba todos los comandos, excepciones y partidas que habrá al iniciar una partida
+*/
 public class Juego {
+    /** Atributo para controlar los comandos introducidos por teclado de la partida*/
     private Comandos comandos;
+    /** Atributo que indica la partida a jugar*/
     private Partida partida;
+    /** Atributo que controla las excepciones que puede tener el juego*/
     private ExcepcionJuego excepcionJuego;
+    /** Atributo que cuenta el número de Zombies que aparecerán en la partida*/
     private int totalEnemigos;
+    /** Atributo que cuenta los turnos que tendrá la partida en total*/
     private int turnosTotales;
+    /** Atributo que controla el turno anterior al actual*/
     private int turnoAnt;
     
 
-   
+
     public Juego(Comandos comandos, ExcepcionJuego excepcionJuego) {
         this.comandos = comandos;
         this.excepcionJuego = excepcionJuego;
@@ -74,6 +83,9 @@ public class Juego {
         this.excepcionJuego = excepcionJuego;
     }
     
+    /** Método que actualiza la partida a cada turno que pasa
+     * @param j partida en curso
+    */
     public void actualizar(Juego j){
         if (j.getPartida() != null){
                 if (turnoAnt != j.getPartida().getTurno()){

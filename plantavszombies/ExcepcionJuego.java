@@ -7,11 +7,17 @@ package plantasVsZombies.plantavszombies;
 
 /**
  *
- * @author corte
+ * @author Eloy Rodríguez y María Chantal
  */
+
+/** Controla las posibles excepciones que podemos encontrar en el juego 
+*/
 public class ExcepcionJuego {
     
-    
+    /** Método que indicará si ya hay una partida creada o si se puede iniciar una nueva
+     * @param j partida por crear
+     * @return si hay una partida en curso o no
+    */
     public boolean partidaCreada(Juego j){
         if (j.getPartida() == null) return true;
         else {
@@ -21,6 +27,10 @@ public class ExcepcionJuego {
         
     }
     
+    /** Método para comprobar si los comandos introducidos para crear una nueva partida son válidos
+     * @param comandos introducidos por teclado: n, filas, columnas, dificultad
+     * @return si los datos introducidos son erroneos
+    */
     public boolean puedeCrear(String[] comandos){
         if (comandos.length == 4) return true; 
         else {
@@ -30,6 +40,10 @@ public class ExcepcionJuego {
 
     }
     
+    /** Método para comprobar si el nivel introducido es válido
+     * @param dificultad las dificultades permitidas en el juego
+     * @return si la dificultad no existe
+    */
     public boolean nivelValido(String dificultad){
         if(dificultad.equals("BAJA") || dificultad.equals("MEDIA") || dificultad.equals("ALTA") || dificultad.equals("IMPOSIBLE") ) return true;
         else {
@@ -38,6 +52,10 @@ public class ExcepcionJuego {
         }
     }
     
+    /** Método para comprobar los comandos en cada turno
+     * @param comandos los comandos introducidos por el usuario
+     * @return si los datos no son válidos
+    */
     public boolean comandoCompleto(String[] comandos){
         if (comandos.length == 3) return true; 
         else {

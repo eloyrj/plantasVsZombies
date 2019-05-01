@@ -7,12 +7,18 @@ package plantasVsZombies.plantavszombies;
 
 /**
  *
- * @author Usuario
+ * @author Eloy Rodríguez y María Chantal
  */
+
+/** La clase Planta será la clase padre de Girasol y LanzaGuisantes. 
+*/
 public abstract class Planta extends Personaje {
-    
+    /** Atributo que controla los soles que cuesta cada planta */
     private int coste;
+    /** Atributo que controla la frecuencia con la que actúa cada planta*/
     private int frecuencia;
+
+
     private ExcepcionPlanta excepcion = new ExcepcionPlanta();
     
     public Planta() {
@@ -46,6 +52,10 @@ public abstract class Planta extends Personaje {
     
     
     
-    
+    /** Método para plantar una nueva planta
+     * @param x coordenada x para plantar
+     * @param y coordenada y para plantar
+     * @param j partida en curso
+    */
     public abstract void addPlanta(int x,int y,Juego j);
 }

@@ -11,17 +11,25 @@ import java.util.Arrays;
 
 /**
  *
- * @author Usuario
+ * @author Eloy Rodríguez y María Chantal
  */
-public class Partida {
-    private int soles;
-    private int turno; //turno = ciclo
-    private String dificultad; // baja, media, alta, imposible
-    private Tablero tablero;
-    private int enemigos; // para fijar cuántos enemigos hay
-    private int turnoInicial; /* turnos iniciales sin zombies dependiendo
-                               * de la dificultad de la partida */
 
+/** Esta clase controlará los elementos necesarios para poder llevar a cabo una partida*/
+public class Partida {
+    /** Atributo que guarda la cantidad de soles*/
+    private int soles;
+    /** Atributo que almacena los turnos (ciclos) de la partida*/
+    private int turno;
+    /** Atributo que indica la dificultad deseada por el usuario: baja, media, alta o imposible*/
+    private String dificultad;
+    /** Atributo que se encarga de controlar el tablero*/
+    private Tablero tablero;
+    /** Atributo para fijar cuántos enemigos hay*/
+    private int enemigos;
+    /** Atributo que indica los turnos iniciales sin zombies dependiendo de la dificultad de la partida*/
+    private int turnoInicial; 
+                              
+    
     public Partida(int soles, int turno, String dificultad, Tablero tablero, int enemigos, int turnoInicial) {
         this.soles = soles;
         this.turno = turno;
@@ -81,7 +89,10 @@ public class Partida {
     public void setTurnoInicial(int turnoInicial) {
         this.turnoInicial = turnoInicial;
     }
-
+ 
+    /** Imprime todos los elementos a tener en cuenta dentro de una partida
+     * @return los datos de todos estos elementos
+     */
     @Override
     public String toString() {
         return "Partida{" + "soles=" + soles + ", turno=" + turno + ", dificultad=" + dificultad + ", enemigos=" + enemigos + ", turnoInicial=" + turnoInicial + '}';

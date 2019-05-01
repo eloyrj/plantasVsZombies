@@ -73,16 +73,4 @@ public class Tablero {
         return tablero.length;
     }
     
-    public static void main (String[] args){
-        Tablero a =new Tablero(6,6);
-        LanzaGuisantes l = new LanzaGuisantes();
-        Girasol g = new Girasol();
-        ZombieComun z = new ZombieComun();
-        a.addT(4, 2, l);
-        a.addT(3, 4, g);
-        a.addT(6, 1, z);
-        
-        a.pintarTablero();
-    }
-    
 }
