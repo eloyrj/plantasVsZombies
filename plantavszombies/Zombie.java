@@ -3,7 +3,7 @@ package plantasVsZombies.plantavszombies;
 
 /**
  *
- * @author Usuario
+ * @author Eloy Rodríguez y María Chantal
  */
 
 /** La clase Zombie será la clase padre para definir a uno de los tipos de 
