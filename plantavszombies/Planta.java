@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package plantasVsZombies.plantavszombies;
 
 /**
@@ -10,8 +6,9 @@ package plantasVsZombies.plantavszombies;
  * @author Eloy Rodríguez y María Chantal
  */
 
-/** La clase Planta será la clase padre de Girasol y LanzaGuisantes. 
-*/
+/** La clase Planta será la clase padre para definir a dos de los tipos de 
+  * Personajes partícipes en el juego, los LanzaGuisantes y los Girasoles. 
+  */
 public abstract class Planta extends Personaje {
     /** Atributo que controla los soles que cuesta cada planta */
     private int coste;
