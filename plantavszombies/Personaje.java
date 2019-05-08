@@ -16,13 +16,15 @@ public abstract class Personaje {
     private int vida;
     /** Atributo que señala la cantidad de daño que infringe cada personaje*/
     private int daño;
-    /** */
+    /** Atributo que cuenta los turnos que lleva cada personaje en la partida*/
     private int contador;
     /** Atributo que situa a los personajes en su coordenada X del trablero (filas)*/
     private int posX;
     /** Atributo que situa a los personajes en su coordenada Y del tablero (columnas)*/
     private int posY;
 
+    
+    /** Constructor de Personaje*/
     public Personaje() {
         
     

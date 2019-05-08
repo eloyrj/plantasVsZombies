@@ -29,6 +29,10 @@ public class Juego {
     
 
 
+    /** Constructor de Juego
+     * @param comandos comandos del juego
+     * @param excepcionJuego excepciones del juego
+     */
     public Juego(Comandos comandos, ExcepcionJuego excepcionJuego) {
         this.comandos = comandos;
         this.excepcionJuego = excepcionJuego;

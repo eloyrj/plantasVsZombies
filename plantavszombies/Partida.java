@@ -25,7 +25,14 @@ public class Partida {
     /** Atributo que indica los turnos iniciales sin zombies dependiendo de la dificultad de la partida*/
     private int turnoInicial; 
                               
-    
+    /** Constructor de Partida
+     * @param soles que hay en la partida
+     * @param turno en el que se encuentra el usuario en la partida
+     * @param dificultad seleccionada por el usuario
+     * @param tablero creado por el usuario
+     * @param enemigos dependiendo del nivel de dificultad
+     * @param turnoInicial sin zombies dependiendo del nivel de dificultad
+     */
     public Partida(int soles, int turno, String dificultad, Tablero tablero, int enemigos, int turnoInicial) {
         this.soles = soles;
         this.turno = turno;

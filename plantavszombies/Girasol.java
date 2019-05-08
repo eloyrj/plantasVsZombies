@@ -10,6 +10,8 @@ package plantasVsZombies.plantavszombies;
 */
 public class Girasol extends Planta{
 
+    /** Constructor de Girasol
+     */
     public Girasol() {
         super();
         /** Tiene una unidad de vida*/
@@ -20,7 +22,7 @@ public class Girasol extends Planta{
         super.setFrecuencia(2); 
         /** No daña a los zombies*/
         super.setDaño(0); 
-        /** */
+        /** Turnos que lleva el Girasol en la partida*/
         super.setContador(0);
     }
     

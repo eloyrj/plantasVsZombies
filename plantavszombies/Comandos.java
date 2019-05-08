@@ -9,19 +9,13 @@ package plantasVsZombies.plantavszombies;
 /** La clase Comandos controlará todos los comandos introducidos por teclado
  */
 public class Comandos {
-    private boolean fin;
+    
 
+    /** Constructor de Comandos*/
     public Comandos() {
-        fin = false;
+        
     }
 
-    public boolean isFin() {
-        return fin;
-    }
-
-    public void setFin(boolean fin) {
-        this.fin = fin;
-    }
     
     
     /** Método que pondrá todos los comandos introducidos por teclado en mayúscula

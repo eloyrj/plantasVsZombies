@@ -10,7 +10,8 @@ package plantasVsZombies.plantavszombies;
 */
 public class LanzaGuisantes extends Planta {
     
-    
+    /** Constructor de LanzaGuisantes
+     */
     public LanzaGuisantes() {
         super();
         /** Tiene 3 unidades de vida*/
@@ -22,6 +23,7 @@ public class LanzaGuisantes extends Planta {
         /** Le resta una vida al enemigo por lanzamiento*/
         super.setDaño(1);
         super.setExcepcion(new ExcepcionPlanta());
+        /** Atributo que cuenta los turnos que lleva el LanzaGuisantes en la partida*/
         super.setContador(0);
     }
 

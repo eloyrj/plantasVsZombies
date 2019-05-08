@@ -1,19 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package plantasVsZombies.plantavszombies;
 
 /**
  *
- * @author corte
+ * @author Eloy Rodríguez y María Chantal
+ */
+
+/** La clase Tablero creará un tablero (array) a partir de las preferencias del usuario 
  */
 public class Tablero {
     
+    /** Atributo que introduce un personaje en el tablero
+     */
     private Personaje[][] tablero;
 
-    public Tablero(int x, int y) {//donde y son las columnas e x son las filas
+    
+    /** Constructor de tablero
+     * @param x que son las filas
+     * @param y que son las columnas
+     */
+    public Tablero(int x, int y) {
         
         tablero = new Personaje[y][x];
     }
@@ -32,10 +38,19 @@ public class Tablero {
     public void setTablero(Personaje[][] tablero) {
         this.tablero = tablero;
     }
+    
+    
+    /** Método que añade un personaje al tablero en las coordenadas x, y.
+     * @param x las filas del tablero
+     * @param y las columnas del tablero
+     * @param p el personaje en el tablero
+     */
     public void addT(int x, int y, Personaje p){
         tablero[y-1][x-1] = (Personaje) p;
     }
     
+    /** Método para sacar el tablero por pantalla
+     */
     public void pintarTablero(){
         
         String lineaFinal = "";
@@ -65,10 +80,16 @@ public class Tablero {
         System.out.println(lineaFinal);
     }
     
+    /** Método que mide la longitud de la variable x
+     * @return la longitud de la variable x
+     */
     public int lonX(){
         return tablero[1].length;
     }
     
+    /** Método que mide la longitud de la variable y
+     * @return la longitud de la variable y
+     */
     public int lonY(){
         return tablero.length;
     }

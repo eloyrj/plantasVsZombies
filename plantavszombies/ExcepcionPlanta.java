@@ -10,6 +10,8 @@ package plantasVsZombies.plantavszombies;
 */
 public class ExcepcionPlanta {
 
+    /** Constructor de ExcepcionPlanta
+     */
     public ExcepcionPlanta() {
     }
     

@@ -9,6 +9,8 @@ package plantasVsZombies.plantavszombies;
 /** Esta clase controlará el ataque de los zombies durante la partida*/
 public class ZombieComun extends Zombie {
 
+    /** Constructor de ZombieComun
+     */
     public ZombieComun() {
         super();
         /** El zombie avanza 1 casilla cada 2 turnos*/
@@ -17,7 +19,7 @@ public class ZombieComun extends Zombie {
         super.setDaño(1);
         /** El zombie tendrá 5 vidas*/
         super.setVida(5);
-        /** */
+        /** Turnos que lleva el ZombieComun en la partida*/
         super.setContador(0);
     }
     

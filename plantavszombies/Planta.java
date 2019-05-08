@@ -18,6 +18,8 @@ public abstract class Planta extends Personaje {
 
     private ExcepcionPlanta excepcion = new ExcepcionPlanta();
     
+    /** Constructor de Planta
+     */
     public Planta() {
         super();
         

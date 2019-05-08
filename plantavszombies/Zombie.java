@@ -14,6 +14,8 @@ public abstract class Zombie extends Personaje {
     /** Atributo que fijará los avances del zombie por cada turno de partida*/
     private int velocidad;
     
+    /** Constructor de Zombie
+     */
     public Zombie() {
         super();
     } 
