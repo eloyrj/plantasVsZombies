@@ -1,5 +1,5 @@
 
-package plantasVsZombies.plantavszombies;
+package Personajes;
 
 /**
  *

@@ -1,5 +1,12 @@
 
-package plantasVsZombies.plantavszombies;
+package interfaz;
+
+import Excepciones.ExcepcionJuego;
+import Personajes.Girasol;
+import Juego.Juego;
+import Personajes.LanzaGuisantes;
+import Juego.Partida;
+import Juego.Tablero;
 
 /**
  *

@@ -1,5 +1,8 @@
 
-package plantasVsZombies.plantavszombies;
+package Personajes;
+
+import Juego.Juego;
+import Excepciones.ExcepcionPlanta;
 
 /**
  *

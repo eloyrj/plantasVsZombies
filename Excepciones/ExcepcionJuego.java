@@ -1,5 +1,7 @@
 
-package plantasVsZombies.plantavszombies;
+package Excepciones;
+
+import Juego.Juego;
 
 /**
  *
@@ -10,17 +12,24 @@ package plantasVsZombies.plantavszombies;
 */
 public class ExcepcionJuego {
     
+    
+    
+    /**Constructor de ExcepcionJuego 
+     */
+    public ExcepcionJuego(){
+    }
+    
+    
     /** Método que indicará si ya hay una partida creada o si se puede iniciar una nueva
-     * @param j partida por crear
-     * @return si hay una partida en curso o no
+    * @param j partida por crear
+    * @return si hay una partida en curso o no
     */
-    public boolean partidaCreada(Juego j){
+    public boolean partidaCreada(Juego j) {
         if (j.getPartida() == null) return true;
         else {
             System.out.println("ya hay una partida creada, no puedes hacer eso.");
             return false;
         }
-        
     }
     
     /** Método para comprobar si los comandos introducidos para crear una nueva partida son válidos
